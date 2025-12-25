@@ -1,4 +1,4 @@
-@use 'helpers/index' as *;
+@use "helpers/index" as *;
 
 :root {
   --just-white: #fff;
@@ -12,8 +12,9 @@
   --yellow: #ffc211;
   --yellow-50: rgba(255, 194, 17, 0.5);
   --orange: #ff7900;
+  --accent: #00b0f0;
 
-  --font-family-base: 'ProximaNova', sans-serif;
+  --font-family-base: "ProximaNova", sans-serif;
 
   --container-width: #{rem(1856)};
   --container-padding-x: #{rem(32)};

@@ -1,12 +1,12 @@
 <script setup lang="ts">
-type Variant = 'primary' | 'secondary' | 'main';
+type Variant = "primary" | "secondary" | "main";
 
 interface Props {
   variant?: Variant;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'primary',
+  variant: "primary",
 });
 </script>
 
@@ -23,11 +23,11 @@ const props = withDefaults(defineProps<Props>(), {
   justify-content: center;
   gap: 40px;
   font-weight: 600;
-  font-size: 64px;
+  font-size: 32px;
   line-height: 100%;
   letter-spacing: 0.03em;
-  border-radius: 48px;
-  padding: 48px;
+  border-radius: 16px;
+  padding: 12px 24px;
   cursor: pointer;
   border: none;
 
@@ -40,7 +40,7 @@ const props = withDefaults(defineProps<Props>(), {
     color: var(--accent);
   }
 
-  &--main{
+  &--main {
     border: 8px solid var(--just-white);
     border-radius: 112px;
     padding: 40px 80px;

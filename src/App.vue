@@ -1,26 +1,41 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
-import { useInactivity } from "@/utils/useInactivity/useInactivity.ts";
+import { provide, ref } from "vue";
 import { useRoute } from "vue-router";
+
+import { Keyboard } from "@/components/ui/Keyboard";
+import { useInactivity } from "@/utils/useInactivity/useInactivity.ts";
+import { useKioskReloadFix } from "@/utils/useKioskReloadFix/useKioskReloadFix.ts";
 
 const route = useRoute();
 
-onMounted(() => {
+const keyboardRef = ref<InstanceType<typeof Keyboard> | null>(null);
+
+provide(
+  "openKeyboard",
+  (el: HTMLInputElement, type: "text" | "number", onClose?: () => void) => {
+    keyboardRef.value?.openKeyboard(el, type, onClose);
+  },
+);
+
+const { isReady } = useKioskReloadFix();
+
+if (isReady.value) {
   useInactivity();
-});
+}
 </script>
 
 <template>
-  <main class="main">
+  <main v-if="isReady" class="main">
     <RouterView v-slot="{ Component }">
       <template v-if="Component">
-        <transition name="fade-page" mode="out-in">
+        <transition name="fade" mode="out-in">
           <suspense>
             <component :is="Component" :key="route.fullPath"></component>
           </suspense>
         </transition>
       </template>
     </RouterView>
+    <Keyboard ref="keyboardRef" />
   </main>
 </template>
 

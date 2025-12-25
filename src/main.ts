@@ -5,8 +5,10 @@ import { createPinia } from "pinia";
 import { createApp } from "vue";
 
 import App from "./App.vue";
-import router from "@/router";
+
 import { queryClient } from "@/api/queryClient/queryClient.ts";
+import motionPlugin from "@/plugins/motion";
+import router from "@/router";
 
 const app = createApp(App);
 
@@ -15,6 +17,7 @@ app
     enableDevtoolsV6Plugin: true,
     queryClient,
   })
+  .use(motionPlugin)
   .use(router)
   .use(createPinia());
 

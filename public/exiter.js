@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let timerId;
   const BODY = document.querySelector("body");
-  const PIN = 1604;
-  const TIMER = 3000;
-  const EXIT_URL = "http://localhost:1702/";
+  const PIN = window.EXITER_PIN;
+  const TIMER = window.EXITER_HOLD_TIMEOUT * 1000;
+  const EXIT_URL = window.EXITER_URL;
   const BASE_BTN_CONFIG = {
     styles: {
       width: "100%",

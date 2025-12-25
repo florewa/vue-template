@@ -1,12 +1,15 @@
-@use 'helpers/index' as *;
+@use "helpers/index" as *;
 
 body {
-  @include fluid-text(16, 16);
   font-family: var(--font-family-base);
   line-height: 1;
   color: var(--dark-blue);
-  background-image: url('@/shared/assets/images/bg.png');
   overflow-y: hidden;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  user-select: none !important;
 }
 
 h1,
