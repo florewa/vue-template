@@ -3,8 +3,16 @@
 body {
   font-family: var(--font-family-base);
   line-height: 1;
-  color: var(--dark-blue);
+  color: var(--gray);
+  background: #ccc;
   overflow-y: hidden;
+}
+
+#app,
+.main,
+.page {
+  width: 100vw;
+  height: 100vh;
 }
 
 * {
